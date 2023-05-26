@@ -1,0 +1,7 @@
+.content {
+	border: 1px solid blue;
+	width: 84vw;
+	height: 60vh;
+	position: absolute;
+	right: 0;
+}
