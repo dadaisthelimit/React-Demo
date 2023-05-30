@@ -1,0 +1,19 @@
+.counter-card{
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	padding: 10px;
+	margin: 16px;
+}
+
+.counter-card__button {
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}

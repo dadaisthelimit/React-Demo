@@ -1,5 +1,7 @@
-const showMessage = (message) => {
+export const showMessage = (message) => {
 	console.log(message)
-} 
+}
 
-export default showMessage;
+export const promptMessage = (message) => {
+	alert(message)
+}

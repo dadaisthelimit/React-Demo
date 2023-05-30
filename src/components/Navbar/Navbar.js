@@ -1,5 +1,5 @@
 import './Navbar.css'
-import showMessage from '../../helpers/alerts';
+import { showMessage, promptMessage } from '../../helpers/alerts';
 
 const Navbar = () => {
 	  return (

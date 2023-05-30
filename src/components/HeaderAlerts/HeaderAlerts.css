@@ -1,0 +1,17 @@
+.header-alerts{
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 100;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 0 20px;
+	box-sizing: border-box;
+	transition: all 0.3s ease-in-out;
+	transform: translateY(-100%);
+}
