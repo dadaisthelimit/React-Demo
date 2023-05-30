@@ -17,7 +17,7 @@ const CounterCard = () => {
 	return (
 		<div className="counter-card">
 			<button className="counter-card__button" onClick={() => {decrement()}}>-</button>
-			<h4>{count}</h4>
+			<h2>{count}changed by Darwin</h2>
 			<button className="counter-card__button" onClick={() => {increment()}}>+</button>
 		</div>
 	);
