@@ -1,3 +1,4 @@
+import Dice from '../Dice/Dice';
 import './CounterCard.css'
 import { useState } from 'react';
 const CounterCard = () => {
@@ -5,21 +6,28 @@ const CounterCard = () => {
 	const [count, setCount] = useState(0);
 
 	const increment = () => {
-		console.log('Clicked increment')
-		setCount(count + 1);
+		setCount(Math.ceil(Math.random() * 6));
 	}
 
 	const decrement = () => {
-		console.log('Clicked decrement')
-		setCount(count - 1);
+		setCount(Math.ceil(Math.random() * 6));
+	}
+
+	const displayMessage = (message) => {
+		console.log(message);
 	}
 
 	return (
-		<div className="counter-card">
-			<button className="counter-card__button" onClick={() => {decrement()}}>-</button>
-			<h4>{count}</h4>
-			<button className="counter-card__button" onClick={() => {increment()}}>+</button>
+		<div>
+			<div className="counter-card">
+				<button className="counter-card__button" onClick={() => {decrement()}}>Roll</button>
+				<h4>{count}</h4>
+				<button className="counter-card__button" onClick={() => {increment()}}>Roll</button>
+			</div>
+			<Dice value={count} change={setCount} onDiceEvent={(diceData) => {displayMessage(diceData)}} />
 		</div>
+
+
 	);
 }
 

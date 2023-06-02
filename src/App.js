@@ -6,9 +6,7 @@ import CounterCard from './components/CounterCard/CounterCard';
 const App = () => {
     return (
       <div className="App container p-4">
-         <CounterCard />
-         <CounterCard />
-         <CounterCard />
+        <CounterCard />
       </div>
     );
   }
