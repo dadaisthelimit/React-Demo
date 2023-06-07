@@ -1,12 +1,17 @@
 import './App.css';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import CounterCard from './components/CounterCard/CounterCard';
-
+import HelloWorld from './views/HelloWorld/HelloWorld';
+import Card from './components/Card/Card';
 const App = () => {
     return (
       <div className="App container p-4">
-        <CounterCard />
+        <HelloWorld>
+          <div>
+            <h1>weird div</h1>
+          </div>
+          <Card message="MEssage" title="TEST"></Card>
+        </HelloWorld>
       </div>
     );
   }
