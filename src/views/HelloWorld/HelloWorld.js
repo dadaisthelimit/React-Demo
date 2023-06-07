@@ -13,6 +13,7 @@ function HelloWorld(props) {
 		<div>
 			{firstElement}
 			<h1>Hello World</h1>
+			<button><a href="/about">Go to About</a></button>
 			{secondElement}
 		</div>
 	)
