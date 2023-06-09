@@ -1,6 +1,7 @@
 import { useState } from "react";
 const NamesList = () => {
   const [names, setNames] = useState(["John", "Paul", "George", "Ringo"]);
+  const [isWinner, setIsWinner] = useState(false);
 
   const parseNames = (event) => {
     const names = event.target.value.split("\n");
@@ -8,14 +9,37 @@ const NamesList = () => {
   };
 
   const randomlyPickWinner = () => {
-	const randomPick = Math.floor(Math.random() * 10);
-	for (let i = 0; i < randomPick; i++) {
-		const randomIndex = Math.floor(Math.random() * names.length);
-		document.getElementById(names[randomIndex]).style.backgroundColor = "yellow";
-		setInterval(() => {
-			document.getElementById(names[randomIndex]).style.backgroundColor = "white";
-		}, 2000);
-	}
+    if (names.length !== Array.from(new Set(names)).length) {
+      alert("There's a repeated Value!")
+      return
+    }
+    
+    const randomWinner = Math.floor(Math.random() * names.length);
+    let theWinner = new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(document.getElementById(names[randomWinner]));
+      }, 1000 * names.length);
+    });
+    if (!isWinner) {
+      for (let i = 0; i < names.length; i++) {
+        setIsWinner(true);
+        setTimeout(() => {
+          if (i === randomWinner) {
+            document.getElementById(names[randomWinner]).style.backgroundColor =
+              "purple";
+          } else {
+            document.getElementById(names[i]).style.backgroundColor = "yellow";
+          }
+        }, i * 1000);
+      }
+      theWinner.then((res) => {
+        setIsWinner(false);
+        alert(`The Winner Is ${res.innerHTML}`);
+        for (let i = 0; i < names.length; i++) {
+          document.getElementById(names[i]).style.backgroundColor = "white";
+        }
+      });
+    }
   };
 
   return (
@@ -34,7 +58,13 @@ const NamesList = () => {
           </li>
         ))}
       </ul>
-      <button onClick={() => { randomlyPickWinner() }}>Pick A Winner</button>
+      <button
+        onClick={() => {
+          randomlyPickWinner();
+        }}
+      >
+        Pick A Winner
+      </button>
     </div>
   );
 };
